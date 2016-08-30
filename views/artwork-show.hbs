@@ -1,0 +1,13 @@
+{{#unless artwork}}
+<h2>That artwork couldn't be found!</h2>
+{{else}}
+<h2>{{artwork.title}} by {{artwork.artist}}</h2>
+<form method="post" action="/{{artwork.title}}/delete?_method=delete">
+  <button type="submit">Delete</button>
+</form>
+<form action="/{{artwork.title}}?_method=put" method="post">
+  <input type="text" name="title" placeholder="Title" value={{artwork.title}}>
+  <input type="text" name="artist" placeholder="Artist" value={{artwork.artist}}>
+  <button type="submit">Edit</button>
+</form>
+{{/unless}}
