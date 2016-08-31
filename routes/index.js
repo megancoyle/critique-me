@@ -28,6 +28,12 @@ router.post('/posts', function(req, res, next) {
   });
 });
 
+// router.delete('/posts/:post/delete', function(req, res) {
+//   Post.findOneAndRemove({title: req.params.title}).then(function(){
+//     res.redirect("/")
+//   });
+// });
+
 router.param('post', function(req, res, next, id) {
   var query = Post.findById(id);
 

@@ -2,6 +2,9 @@ var mongoose = require('mongoose');
 
 var PostSchema = new mongoose.Schema({
   title: String,
+  artist: String,
+  imgUrl: String,
+  yearMade: Number,
   link: String,
   votes: {type: Number, default: 0},
   comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }]
@@ -17,4 +20,6 @@ PostSchema.methods.downvote = function(cb) {
   this.save(cb);
 }
 
-mongoose.model('Post', PostSchema);
+var PostModel = mongoose.model('Post', PostSchema);
+
+module.exports = PostModel

@@ -1,10 +1,9 @@
 var mongoose = require("./connection");
 var seedData = require("./seeds");
+var PostModel = require("../models/Posts.js");
 
-var Artwork = mongoose.model("Artwork");
-
-Artwork.remove({}).then(function(){
-  Artwork.collection.insert(seedData).then(function(){
+PostModel.remove({}).then(function(){
+  PostModel.collection.insert(seedData).then(function(){
     process.exit();
   });
 });

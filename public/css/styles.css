@@ -1,0 +1,15 @@
+/* header styling */
+.page-header a {
+    text-decoration: none;
+    color: black;
+}
+/* button styling */
+button.btn.btn-primary {
+    background-color: #990000;
+    border-color: #990000;
+}
+
+button.btn.btn-primary:hover {
+    background-color: #ff0000;
+    border-color: #ff0000;
+}
