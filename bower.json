@@ -1,0 +1,28 @@
+{
+  "name": "Critique Me",
+  "version": "0.0.0",
+  "authors": [
+    ""
+  ],
+  "main": "core.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.24",
+    "bootstrap": "~3.2.0",
+    "angular-ui-router": "~0.2.11",
+    "body-parser": "^1.15.0",
+    "connect-mongo": "^1.1.0",
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.13.0",
+    "mongoose": "^4.4.11",
+    "qs": "^6.1.0",
+    "request": "^2.70.0"
+  }
+}

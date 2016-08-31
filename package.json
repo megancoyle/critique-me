@@ -1,29 +1,19 @@
 {
-  "name": "critique-me",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "CritiqueMe",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.13.4",
-    "express-handlebars": "^3.0.0",
+    "body-parser": "~1.8.1",
+    "cookie-parser": "~1.3.3",
+    "debug": "~2.0.0",
+    "ejs": "~0.8.5",
+    "express": "~4.9.0",
+    "mongoose": "^4.0.2",
+    "morgan": "^1.3.2",
     "method-override": "^2.3.6",
-    "mongoose": "^4.5.10"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/megancoyle/critique-me.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/megancoyle/critique-me/issues"
-  },
-  "homepage": "https://github.com/megancoyle/critique-me#readme"
+    "serve-favicon": "~2.1.3"
+  }
 }
