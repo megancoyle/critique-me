@@ -13,3 +13,7 @@ button.btn.btn-primary:hover {
     background-color: #ff0000;
     border-color: #ff0000;
 }
+
+img {
+  max-width: 500px;
+}

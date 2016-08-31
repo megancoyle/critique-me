@@ -65,7 +65,7 @@ function ($scope, posts) {
     }
 
     $scope.upvote = function (post) {
-        //we're calling the upvote() function and passing in our post
+        //calling the upvote() function and passing in post
         posts.upvote(post);
     };
     $scope.downvote = function (post) {
@@ -92,7 +92,9 @@ function ($scope, posts, post) {
         });
         $scope.body = '';
     };
-
+    // $scope.deleteComment = function(comment) {
+    //   comments.delete(comment);
+    // }
     $scope.deletePost = function(post) {
       posts.delete(post);
     }
@@ -112,7 +114,6 @@ function ($scope, posts, post) {
         posts: []
     };
     // query the '/posts' route and bind a function when request returns
-   // get back a list and copy to posts object using angular.copy() - see index.ejs
     o.getAll = function () {
         return $http.get('/posts')
           .success(function (data) {
@@ -158,6 +159,11 @@ function ($scope, posts, post) {
     o.addComment = function (id, comment) {
         return $http.post('/posts/' + id + '/comments', comment);
     };
+    // o.deleteComment = function (id, comment) {
+    //     return $http.delete('/posts/' + id + '/comments', comment).success(function(data){
+    //       angular.copy(data, o.comments)
+    //     });
+    // };
 
     o.upvoteComment = function (post, comment) {
         return $http.put('/posts/' + post._id + '/comments/' + comment._id + '/upvote')

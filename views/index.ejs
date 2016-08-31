@@ -39,9 +39,6 @@
                 <a href="/posts/{{post._id}}">Comments</a>
                 ({{post.comments.length}})
             </span>
-            <span style="float: right;" ng-click="deletePost(post)">
-              <a href="#">Delete</a>
-            </span>
         </div>
         <div class="col-xs-6 col-lg-4">
         <form ng-submit="addPost()"
@@ -78,6 +75,9 @@
                     {{post.title}} by {{post.artist}}
                 </span>
             </h3>
+            <span style="float: right;" ng-click="deletePost(post)">
+              <a href="#">Delete</a>
+            </span>
         </div>
 
         <div ng-repeat="comment in post.comments | orderBy: '-votes'">
@@ -90,6 +90,9 @@
             <span style="font-size:20px;margin-left:10px">
                 {{comment.body}}
             </span>
+            <!-- <span style="float: right;" ng-click="deleteComment(comment)">
+              <a href="#">Delete</a>
+            </span> -->
         </div>
         <form ng-submit="addComment()"
             style="margin-top:30px">

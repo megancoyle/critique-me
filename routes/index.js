@@ -111,6 +111,22 @@ router.post('/posts/:post/comments', function(req, res, next) {
   });
 });
 
+// // delete comment
+// router.delete('/posts/:post/comments', function(req, res, next) {
+// 	Comment.remove({
+// 		_id: req.params.post.comments.comment
+// 	}, function(err, comment) {
+// 		if (err) { return next(err); }
+//
+// 		// get and return all the comments after you delete one
+// 		Comment.find(function(err, comments) {
+// 			if (err) { return next(err); }
+//
+// 			res.json(commments);
+// 		});
+// 	});
+// });
+
 router.put('/posts/:post/comments/:comment/upvote', function(req, res, next) {
   req.comment.upvote(function(err, comment){
     if (err) { return next(err); }
