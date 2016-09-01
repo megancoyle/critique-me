@@ -18,7 +18,12 @@ nav {
 }
 .page-header nav a {
     text-decoration: none;
-    color: white;
+    color: black;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.page-header nav a:hover{
+  color: #ff471a;
 }
 
 .content {
