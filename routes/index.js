@@ -4,7 +4,7 @@ var router = express.Router();
 var Post = mongoose.model('Post');
 var Comment = mongoose.model('Comment');
 
-/* GET home page. */
+/* homepage setup */
 router.get('/', function(req, res) {
   res.render('index');
 });
@@ -80,6 +80,17 @@ router.get('/posts/:post', function(req, res, next) {
     res.json(post);
   });
 });
+
+// router.put('/posts/:post/edit', function(req, res){
+//   Post.findOne({title: req.params.title}).then(function(post){
+//     post.title = req.body.title;
+//     post.save(function(err){
+//       if(!err){
+//         res.redirect("/home");
+//       }
+//     })
+//   });
+// });
 
 router.put('/posts/:post/upvote', function(req, res, next) {
   req.post.upvote(function(err, post){

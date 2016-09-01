@@ -1,0 +1,62 @@
+<div class="container content">
+  <span class="delete" ng-click="deletePost(post)">
+    <a href="#">Delete</a>
+  </span>
+  <div class="page-header">
+    <h3>
+      {{post.title}} by {{post.artist}} | {{post.yearMade}}
+    </h3>
+    <img src="{{post.imageUrl}}">
+    <p>
+      {{post.details}}
+    </p>
+  </div>
+  <!-- <div class="update-form">
+  <form ng-submit="updatePost()"
+      style="margin-top:30px">
+      <h3>Edit Post</h3>
+
+      <div class="form-group">
+          <input type="text"
+              class="form-control"
+              placeholder="Title"
+              data-ng-model="post.title">
+      </div>
+
+      <div class="form-group">
+          <input type="text"
+              class="form-control"
+              placeholder="Link"
+              data-ng-model="post.link">
+      </div>
+
+      <button type="submit" class="btn btn-primary">update</button>
+      </div>
+    </form> -->
+
+  <div ng-repeat="comment in post.comments | orderBy: '-votes'">
+      <span class="fa fa-arrow-up"
+          ng-click="upvote(comment)"></span>
+      {{comment.votes}}
+      <span class="fa fa-arrow-down"
+          ng-click="downvote(comment)"></span>
+      <!-- - by {{comment.author}} -->
+      <span style="font-size:20px;margin-left:10px">
+          {{comment.body}}
+      </span>
+      <!-- <span style="float: right;" ng-click="deleteComment(comment)">
+        <a href="#">Delete</a>
+      </span> -->
+  </div>
+  <form ng-submit="addComment()"
+      style="margin-top:30px">
+      <h3>add a critique:</h3>
+      <div class="form-group">
+          <input type="text"
+              class="form-control"
+              placeholder="Comment"
+              ng-model="body">
+      </div>
+      <button type="submit" class="btn btn-primary">critique me</button>
+  </form>
+</div>

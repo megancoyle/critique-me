@@ -1,3 +1,5 @@
+'use strict';
+
 (function () {
 angular.module('critique', ['ui.router'])
 .config([
@@ -5,12 +7,12 @@ angular.module('critique', ['ui.router'])
     '$locationProvider',
     '$urlRouterProvider',
     function ($stateProvider, $locationProvider, $urlRouterProvider) {
-        //when home is entered,load all posts before state finishes loading
-        $locationProvider.html5Mode(true);
+
+        //load all posts before home state finishes loading
         $stateProvider
             .state('home', {
-                url: '/',
-                templateUrl: '/home.html',
+                url: '/home',
+                templateUrl: 'templates/home.html',
                 controller: 'MainCtrl',
                 resolve: {
                     postPromise: ['posts', function (posts) {
@@ -18,9 +20,13 @@ angular.module('critique', ['ui.router'])
                   }]
                 }
             })
+            .state('welcomeIndex', {
+                url: '',
+                templateUrl: 'templates/index.html'
+            })
             .state('posts', {
                 url: '/posts/:id',
-                templateUrl: '/posts.html',
+                templateUrl: 'templates/posts.html',
                 controller: 'PostsCtrl',
                 resolve: {
                 post: ['$stateParams', 'posts', function ($stateParams, posts) {
@@ -43,21 +49,34 @@ function ($scope, posts) {
             return;
         }
       //check for valid URL
-      // var isValidUrl = /^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.‌​\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[‌​6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1‌​,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00‌​a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u‌​00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/[^\s]*)?$/i;
+      var isValidUrl = /^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.‌​\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[‌​6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1‌​,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00‌​a1-\uffff0-9]+-?)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]+-?)*[a-z\u‌​00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/[^\s]*)?$/i;
 
       var url = $scope.link;
+      var artist = $scope.artist;
+      var yearMade = $scope.yearMade;
+      var imageUrl = $scope.imageUrl;
+      var details = $scope.details;
 
       if($scope.link && !isValidUrl.test(url)) {
         alert('You must include a valid url (ex: http://www.example.com');
           return;
       }
-        posts.create({           //mongoose create?
+        posts.create({
             title: $scope.title,
-            link: $scope.link
+            link: $scope.link,
+            artist: $scope.artist,
+            yearMade: $scope.yearMade,
+            imageUrl: $scope.imageUrl,
+            details: $scope.details
+
         });
         //clear the values
         $scope.title = '';
         $scope.link = '';
+        $scope.artist = '';
+        $scope.yearMade = '';
+        $scope.imageUrl = '';
+        $scope.details = '';
     };
 
     $scope.deletePost = function(post) {
@@ -81,9 +100,11 @@ function ($scope, posts, post) {
     $scope.post = post;
 
     $scope.addComment = function () {
-        if ($scope.body === '') {
-            return;
+        if ($scope.body.length === 0) {
+          alert('Content is required');
+           return;
         }
+
         posts.addComment(post._id, {
             body: $scope.body,
             author: 'user'
@@ -92,9 +113,18 @@ function ($scope, posts, post) {
         });
         $scope.body = '';
     };
+
     // $scope.deleteComment = function(comment) {
     //   comments.delete(comment);
     // }
+
+    // $scope.updatePost = function(post) {
+    //   posts.update({
+    //     id: $scope.post.id,
+    //     update: { method: "PUT" }
+    //   });
+    // }
+
     $scope.deletePost = function(post) {
       posts.delete(post);
     }
@@ -120,7 +150,6 @@ function ($scope, posts, post) {
             angular.copy(data, o.posts);
         });
     };
-    // uses router.post in index.js to post a new Post model to mongoDB
     // when $http gets success, it adds this post to the posts object in local factory
     o.create = function (post) {
         return $http.post('/posts', post)
@@ -128,6 +157,13 @@ function ($scope, posts, post) {
             o.posts.push(data);
         });
     };
+
+    // o.update = function(post) {
+    //   return $http.put('/posts/' + post._id)
+    //     .success(function (data) {
+    //       return res.data
+    //     })
+    // };
 
     o.upvote = function (post) {
       //use express route for this post's id to add upvote to mongo model

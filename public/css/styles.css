@@ -1,8 +1,74 @@
+body {
+  background: url('../images/desk.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+.page-header {
+    margin-top: 0;
+}
+.page-header h1 {
+    display: inline-block;
+}
+nav {
+    float: right;
+    padding-top: 30px;
+}
+.page-header nav a {
+    text-decoration: none;
+    color: white;
+}
+
+.content {
+  background: rgba(255,255,255,0.8);
+  padding: 20px;
+  margin-top: 15px;
+  min-height: 500px;
+  max-width: 700px;
+}
+.container {
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 /* header styling */
 .page-header a {
     text-decoration: none;
     color: black;
 }
+
+/* form styles */
+.update-form {
+
+}
+.submissions {
+  display: block;
+  clear: both;
+}
+.submissions h3 {
+    margin-top: -20px;
+}
+.listings {
+  display: block;
+  clear: both;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #bfbfbf;
+}
+.add {
+  text-align: right;
+  padding-bottom: 10px;
+  display: block;
+}
+.delete {
+  display: block;
+  text-align: right;
+  padding-bottom: 10px;
+}
+
 /* button styling */
 button.btn.btn-primary {
     background-color: #990000;
@@ -16,4 +82,5 @@ button.btn.btn-primary:hover {
 
 img {
   max-width: 500px;
+  padding-bottom: 20px;
 }

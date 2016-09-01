@@ -3,24 +3,28 @@
    "title": "Composition IV",
    "artist": "Wassily Kandinsky",
    "imageUrl": "http://www.abstract-art-framed.com/image-files/famous-abstract-artists-kandinsky-composition-iv.jpg",
-   "yearMade": 1911
+   "yearMade": 1911,
+   "details": "Painting trying to depict the beauty in chaos."
  },
  {
    "title": "No VI - Composition No II",
    "artist": "Piet Mondrian",
    "imageUrl": "https://d32dm0rphc51dk.cloudfront.net/LZnONhGU5vOxkEriTDVd9Q/tall.jpg",
-   "yearMade": 1920
+   "yearMade": 1920,
+   "details": "The goal of this was not to be too square. Did I achieve it?"
  },
  {
    "title": "Weeping Woman",
    "artist": "Pablo Picasso",
    "imageUrl": "https://c2.staticflickr.com/8/7302/12236568535_cb4e43c3e7_b.jpg",
-   "yearMade": 1937
+   "yearMade": 1937,
+   "details": "Going through my abstract phase."
  },
  {
    "title": "Number 18",
    "artist": "Jackson Pollock",
    "imageUrl": "http://www.jackson-pollock.org/images/paintings/number-18.jpg",
-   "yearMade": 1950
+   "yearMade": 1950,
+   "details": "A work of art made to be really, really, ridiculously expressive."
  }
 ]
