@@ -3,7 +3,7 @@
 ## Overview
 critique me is a MEAN stack web application where users can post projects and have others critique their work.
 
-![Screenshot](screenshot.jpg)
+![Screenshot](screenshot.png)
 
 ## Technologies Used
 * [Mongo DB](https://www.mongodb.com/)
