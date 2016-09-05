@@ -81,16 +81,18 @@ router.get('/posts/:post', function(req, res, next) {
   });
 });
 
-// router.put('/posts/:post/edit', function(req, res){
-//   Post.findOne({title: req.params.title}).then(function(post){
-//     post.title = req.body.title;
-//     post.save(function(err){
-//       if(!err){
-//         res.redirect("/home");
-//       }
-//     })
-//   });
-// });
+router.put('/posts/:post', function(req, res) {
+  Post.findById(req.body._id).then(function(post){
+    post.title = req.body.title;
+    post.save(function(err){
+      if(!err){
+        res.json(post);
+      } else {
+        res.json({error: err});
+      }
+    })
+  });
+});
 
 router.put('/posts/:post/upvote', function(req, res, next) {
   req.post.upvote(function(err, post){

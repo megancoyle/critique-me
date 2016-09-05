@@ -11,8 +11,8 @@
       {{post.details}}
     </p>
   </div>
-  <!-- <div class="update-form">
-  <form ng-submit="updatePost()"
+  <div class="update-form">
+  <form ng-submit="updatePost(post)"
       style="margin-top:30px">
       <h3>Edit Post</h3>
 
@@ -32,7 +32,7 @@
 
       <button type="submit" class="btn btn-primary">update</button>
       </div>
-    </form> -->
+    </form>
 
   <div ng-repeat="comment in post.comments | orderBy: '-votes'">
       <span class="fa fa-arrow-up"
