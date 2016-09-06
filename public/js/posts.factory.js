@@ -20,7 +20,6 @@ angular.module('critique').factory('posts', ['$http', function ($http) {
     o.update = function(post) {
       return $http.put('/posts/' + post._id, post)
         .success(function (data) {
-          console.log('update successful', data);
           return data;
         })
     };
