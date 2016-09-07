@@ -30,8 +30,6 @@ bower install
 ```
 
 ## Unsolved Problems/Next Steps
-* I was unable to get full CRUD functioning for the art posts, so up next, I hope to tackled the Update functionality.
-* Adding the ability to delete comments
 * Currently, users can upvote and downvote as many times as they want for comments and art posts. I want to configure the voting so users are limited to one vote.
 * Successfully deploy this on Heroku
 * RegEx for preventing users from commenting when using specific words/phrases
