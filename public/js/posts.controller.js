@@ -20,9 +20,9 @@ function ($scope, posts, post) {
         $scope.body = '';
     };
 
-    // $scope.deleteComment = function(comment) {
-    //   comments.delete(comment);
-    // }
+    $scope.deleteComment = function(comment) {
+      posts.deleteComment(post, comment)
+    }
 
     $scope.updatePost = function(post) {
       posts.update(post);

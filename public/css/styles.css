@@ -87,5 +87,6 @@ button.btn.btn-primary:hover {
 
 img {
   max-width: 500px;
+  width: 100%;
   padding-bottom: 20px;
 }

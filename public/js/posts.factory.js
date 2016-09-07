@@ -54,11 +54,11 @@ angular.module('critique').factory('posts', ['$http', function ($http) {
     o.addComment = function (id, comment) {
         return $http.post('/posts/' + id + '/comments', comment);
     };
-    // o.deleteComment = function (id, comment) {
-    //     return $http.delete('/posts/' + id + '/comments', comment).success(function(data){
-    //       angular.copy(data, o.comments)
-    //     });
-    // };
+    o.deleteComment = function (post, comment) {
+        return $http.delete('/posts/' + post._id + '/comments/' + comment._id).success(function(data){
+          angular.copy(data, o.comments)
+        });
+    };
 
     o.upvoteComment = function (post, comment) {
         return $http.put('/posts/' + post._id + '/comments/' + comment._id + '/upvote')

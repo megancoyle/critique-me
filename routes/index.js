@@ -109,6 +109,7 @@ router.put('/posts/:post/downvote', function(req, res, next) {
 });
 
 router.post('/posts/:post/comments', function(req, res, next) {
+  console.log("comment created");
   var comment = new Comment(req.body);
   comment.post = req.post;
 
@@ -125,20 +126,22 @@ router.post('/posts/:post/comments', function(req, res, next) {
 });
 
 // // delete comment
-// router.delete('/posts/:post/comments', function(req, res, next) {
-// 	Comment.remove({
-// 		_id: req.params.post.comments.comment
-// 	}, function(err, comment) {
-// 		if (err) { return next(err); }
-//
-// 		// get and return all the comments after you delete one
-// 		Comment.find(function(err, comments) {
-// 			if (err) { return next(err); }
-//
-// 			res.json(commments);
-// 		});
-// 	});
-// });
+router.delete('/posts/:post/comments/:comment', function(req, res, next) {
+  Comment.remove({_id: req.params.comment}, function(err, comment){
+    if (err) {
+      return next(err);
+    }
+    Comment.find(function(err, comments){
+      if (err) {
+        return next(err);
+      }
+      res.json(comments)
+    })
+    // res.send([err, docs])
+    // res.json();
+  })
+})
+
 
 router.put('/posts/:post/comments/:comment/upvote', function(req, res, next) {
   req.comment.upvote(function(err, comment){
