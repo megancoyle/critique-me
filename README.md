@@ -3,7 +3,9 @@
 ## Overview
 critique me is a MEAN stack web application where users can post projects and have others critique their work. Users can upvote/downvote projects as well as upvote/downvote critiques.
 
-![Screenshot](screenshot.png)
+[![Screenshot](screenshot.png)](https://critique-me.herokuapp.com/)
+
+[View the Deployed App](https://critique-me.herokuapp.com/)
 
 ## Technologies Used
 * [Mongo DB](https://www.mongodb.com/)
